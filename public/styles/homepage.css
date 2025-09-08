@@ -1,0 +1,289 @@
+/* ==============================
+   RESET & GLOBAL STYLES
+============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background: #f9f9f9;
+}
+
+/* ==============================
+   SIDEBAR NAVIGATION
+============================== */
+.navigation {
+  width: 260px;
+  background: #4cd964;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.navigation img {
+  width: 35px;
+  height: 35px;
+  background: white;
+  border-radius: 6px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.navigation hr {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  margin: 20px 0;
+}
+
+.navigation p {
+  margin-bottom: 15px;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.navigation button {
+  width: 100%;
+  background: white;
+  color: #333;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 10px;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.2s;
+}
+
+.navigation button:hover {
+  background: #f0f0f0;
+}
+
+.navigation button img {
+  width: 18px;
+  margin-right: 10px;
+}
+
+.navigation p:last-child {
+  margin-top: auto;
+  font-size: 12px;
+}
+
+/* ==============================
+   BURGER MENU (MOBILE ONLY)
+============================== */
+.burger {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: #4cd964;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.burger span {
+  display: block;
+  width: 22px;
+  height: 3px;
+  background: white;
+  margin: 4px 0;
+  border-radius: 2px;
+}
+
+/* ==============================
+   CONTENT AREA
+============================== */
+.content {
+  margin-left: 260px;
+  padding: 30px;
+  flex: 1;
+}
+
+/* ==============================
+   HEADER
+============================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  color: #4cd964;
+  font-size: 24px;
+}
+
+.header .logout {
+  text-decoration: none;
+  color: #666;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.header .logout:hover {
+  text-decoration: underline;
+}
+
+.header .email {
+  font-size: 14px;
+  color: #777;
+}
+
+/* ==============================
+   SCHEDULE GRID
+============================== */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* ==============================
+   SCHEDULE CARD
+============================== */
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #4cd964;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.card p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.slot-date .date {
+  font-size: 13px;
+  color: rgb(85, 85, 85);
+  font-weight:600;
+}
+
+.slot-date .slot {
+  font-size: 13px;
+  color: rgb(17, 17, 17);
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+.card .name p {
+  font-weight: bold;
+  font-size: 16px;
+  color: #4cd964;
+}
+
+/* Card Buttons */
+.card button {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 8px;
+  transition: background 0.2s;
+}
+
+.card .reschedule {
+  background: #4cd964;
+  color: white;
+}
+
+.card .delete {
+  background: #ff3b30;
+  color: white;
+}
+
+.card .delete:hover {
+  background: #e63228;
+}
+
+/* Bottom Section (Date + Slot + Delete) */
+.card .time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  color: black;
+}
+
+
+.slot-date{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+@media (max-width: 900px) {
+  .content {
+    margin-left: 0;
+  }
+
+  .navigation {
+    transform: translateX(-100%);
+  }
+
+  .navigation.active {
+    transform: translateX(0);
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .cards-container {
+    grid-template-columns: 1fr; /* 1 card per row */
+  }
+}
+
+@media (max-width: 500px) {
+  .header h1 {
+    font-size: 18px;
+  }
+
+  .card {
+    font-size: 12px;
+  }
+
+  .card p:first-child {
+    font-size: 14px;
+  }
+}
+

@@ -1,0 +1,28 @@
+<div class="navigation">
+
+    <div>
+        <img>
+        <p>made by Kaiden-A</p>
+    </div>
+    <hr>
+    <div>
+        <p>navigation</p>
+        <button onclick="location.assign('/')">
+            <img src="/images/home.png" alt="home-image">
+            <%= user.username %> Dashboard
+        </button>
+
+        <button onclick="location.assign('/reservations')">
+            <img src="/images/schedule.png" alt="create-schedule-image">
+            Create new Schedule
+        </button>
+    </div> 
+
+    <p>Copyright &copy; by Kaiden-A</p>
+
+</div>
+<button class="burger" onclick="document.querySelector('.navigation').classList.toggle('active')">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>

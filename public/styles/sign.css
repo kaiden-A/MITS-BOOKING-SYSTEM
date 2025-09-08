@@ -1,0 +1,129 @@
+/* sign.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #4cd964; /* green background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Header with logo + school name */
+/* School header card */
+.school-header {
+  background: #f0f0f0;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  box-shadow: 2px 4px 6px rgba(0,0,0,0.2);
+  max-width: 335px;
+}
+
+.school-header img {
+  width: 70px;
+  height: auto;
+}
+
+.school-name {
+  display: flex;
+  flex-direction: column;
+}
+
+.school-name .line1 {
+  font-size: 15px;
+  font-weight: 700; /* bold */
+  margin-bottom: 3px;
+}
+
+.school-name .line2 {
+  font-size: 15px;
+  font-weight: 700; /* normal */
+}
+
+
+/* Form container */
+form {
+  background: #f0f0f0;
+  padding: 25px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  box-shadow: 2px 4px 6px rgba(0,0,0,0.2);
+}
+
+form label {
+  margin: 10px 0 5px;
+  font-size: 14px;
+}
+
+form input {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+form hr {
+  margin: 15px 0;
+  border: 0.5px solid #ccc;
+}
+
+form button {
+  background-color: #00c72d;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background-color: #009e23;
+}
+
+form p {
+  margin-top: 10px;
+  font-size: 13px;
+  text-align: center;
+}
+
+form p a,
+form p span {
+  color: #00c72d;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Footer */
+footer {
+  margin-top: 20px;
+  font-size: 12px;
+  color: white;
+}
+
+.error-box{
+  background-color: rgb(253, 128, 128);
+  color: white;
+  width: 335px;
+  height: 10vh;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  display: none;
+  padding-top: 10px;
+  text-align: center;
+}

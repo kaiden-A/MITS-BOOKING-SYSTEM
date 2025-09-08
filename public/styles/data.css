@@ -1,0 +1,147 @@
+/* ==============================
+   CONTENT AREA
+============================== */
+.content {
+  margin-left: 260px; /* for sidebar */
+  padding: 25px;
+  flex: 1;
+  background: #f9f9f9;
+}
+
+/* Responsive: remove margin on mobile */
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0;
+    padding: 15px;
+  }
+}
+
+/* Header */
+header p {
+  font-size: 22px;
+  font-weight: 600;
+  color: #904099;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0; /* separator line */
+  padding-bottom: 10px;
+}
+
+/* ==============================
+   SEARCH & FILTER BAR
+============================== */
+.search-filter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 30px 0;
+  flex-wrap: wrap; /* allow wrapping on small screens */
+}
+
+.search-filter form {
+  flex: 1; /* search bar takes most space */
+}
+
+.search-filter input[type="text"] {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.search-filter input[type="text"]:focus {
+  border-color: #904099;
+}
+
+.search-filter .filter select {
+  min-width: 180px;
+  padding: 14px 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  cursor: pointer;
+}
+
+/* On very small screens put filter below search */
+@media (max-width: 500px) {
+  .search-filter {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-filter .filter select {
+    width: 100%;
+  }
+}
+
+/* ==============================
+   CARD GRID
+============================== */
+.card-grid-parent {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Card */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+/* Card Content */
+.card .name {
+  font-size: 18px;
+  font-weight:700;
+  color: #904099;
+  margin-bottom: 8px;
+}
+
+.card .date {
+  font-size: 14px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.card .slot{
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.card .devider {
+  border: none;
+  height: 1px;
+  background: #ddd;
+  margin: 10px 0;
+}
+
+.card .teacher,
+.card .reason {
+  font-size: 14px;
+  color: #444;
+  margin-top: 5px;
+}
+
+/* ==============================
+   NO DATA
+============================== */
+.no-card {
+  text-align: center;
+  padding: 40px;
+  color: #777;
+  font-size: 16px;
+}
+

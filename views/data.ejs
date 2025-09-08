@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+    <link rel="icon" href="/images/mitsLogo.png">
+    <link rel="stylesheet" href="/styles/navigationAdmin.css">
+    <link rel="stylesheet" href="/styles/data.css">
+
+</head>
+<body>
+
+    <%- include('./partials/adminNavigate.ejs') %>
+
+    <div class="content">
+
+        <header>
+            <p><%= title %></p>
+        </header>
+
+        <div class="card-content">
+
+            <div class="search-filter">
+                <form id="user-input-form">
+                    <input type="text" name="userInput" placeholder="Enter a venue name...">
+                </form>
+                <div class="filter">
+                    <select id="sort-selection">
+                        <option value="">Filter</option>
+                        <option value="date">Ascending Order</option>
+                        <option value="-date">Discending Order</option>
+                    </select>
+                </div>
+            </div>
+
+            <% if(venues.length > 0){ %>
+
+                <div class="card-grid-parent" id="mother">
+                    <% venues.forEach(venue => { %>
+
+                        <div class="card">
+
+                            <p class="name"><%= venue.name %></p>
+
+                            <p class="date"><%= venue.date %></p>
+                            <p class="slot"> <%= venue.slot %></p>
+                            <hr class="devider">
+
+                            <p class="teacher">Supervisor : <%= venue.username %></p>
+                        
+                            <p class="reason">Reason : <%= venue.reason %></p>
+                            
+
+                        </div>
+
+                    <% }) %>
+                </div>
+            <% }else{ %>
+
+                <div class="no-card">
+                    <p>
+                        <%= noData %>
+                    </p>
+
+                </div>
+
+            <% } %>
+
+        </div>
+
+    </div>
+    
+    <script src="/scripts/<%= script %>"></script>
+
+</body>
+</html> 

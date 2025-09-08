@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservations form</title>
+
+    <link rel="icon" href="/images/mitsLogo.png">
+    <link rel="stylesheet" href='/styles/homepage.css'>
+    <link rel="stylesheet" href="/styles/form.css">
+</head>
+<body>
+
+     <%- include('./partials/navigate.ejs') %>
+
+    <div class="content">
+
+        <div class="head">
+
+            <h2>Create A Schedule</h2>
+
+            <button onclick="location.reload()">
+                <img>
+                Create New Schedule
+            </button>
+
+        </div>
+        <hr>
+        <div>
+            
+            <form>
+
+                <label for="venue">VENUE</label>
+                <select name="venue" id="venue">
+                    <option value=""> --Choose a Venue--</option>
+                    <% venues.forEach(venue => { %>
+
+                        <option value="<%= venue._id %>"> <%= venue.name %></option>
+                        
+                    <% }) %>
+                </select>
+                <label for="date">DATE</label>
+                <input type="date" name="date" id="date">
+
+                <label for="time">TIME</label>
+                <select id="time" name="time=[]" multiple>
+                    <option value="">-- Select a Time For Reservations --</option>
+                </select>
+                <label for="reason">REASON</label>
+                <input type="text" name="reason" placeholder="Enter a reason for booking">
+
+                <hr>
+                <button>SUBMIT</button>
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
+    <script src="/scripts/timeChoose.js"></script>
+    <script src="/scripts/postReserve.js"></script>
+    
+</body>
+</html>

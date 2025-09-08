@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venue Inventory</title>
+    <link rel="icon" href="/images/mitsLogo.png">
+    <link rel="stylesheet" href="/styles/navigationAdmin.css">
+    <link rel="stylesheet" href="/styles/inventory.css">
+</head>
+<body>
+
+    <%- include('./partials/adminNavigate.ejs') %>
+
+    <div class="content">
+
+        <div class="header">
+            <h1>Venue Inventory</h1>
+        </div>
+        <hr>
+        <div class="card-content">
+
+            <form id="user-input">
+                <input type="text" name="name" placeholder="Enter a venue">
+                <button>SEARCH</button>
+
+            </form>
+
+            <div class="grid">
+
+
+                <% venues.forEach(venue => { %>
+                    
+                    <div class="card" data-venue-id="<%= venue._id %>">
+                        <div class="head-card">
+                            <h2><%= venue.name %></h2>   
+                            
+                            <% if(venue.active){ %>
+                                <p>Status :<span class="active"> Active </span></p>
+                            <% }else{ %>
+                                <p>Status : <span class="disable">Disable</span></p>
+                            <% } %>
+                        </div>
+                        <div class="location-capacity">
+                            <p class="location">Location : <%= venue.location %></p>
+                            <p class="capacity">Capacity : <%= venue.capacity %></p>
+                        </div>
+                        <div class="all-button">
+                            <button class="disable-btn">DISABLED</button>
+                            <button class="active-btn">ACTIVATE</button>
+                        </div>
+                    </div>
+
+                <% }) %>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script type="module" src="/scripts/search.js"></script>
+    <script type="module" src="/scripts/changeStatus.js"></script>
+    
+</body>
+</html>

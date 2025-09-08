@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= user.username %> Dashboard's</title>
+
+    <link rel="icon" href="/images/mitsLogo.png">
+    <link rel="stylesheet" href="/styles/homepage.css">
+</head>
+<body>
+
+    <%- include('./partials/navigate.ejs') %>
+    <div class="content">
+
+        <div class="header">
+            
+            <h1>Welcome Back <%= user.username %></h1>
+
+            <div >
+                <a class="logout" href="/logout">Logout</a>
+                <p class="email"> <%= user.email %></p>
+            </div>
+
+        </div>
+
+        <% if(reserve.length > 0 ){ %>
+
+            <div class="cards-container">
+
+                <% reserve.forEach( res => { %>
+
+                    <div class="card" data-reserve-id="<%= res.reserveId %>">
+                            
+                        <%  
+                            const date = new Date(res.date);
+
+                            const options = { year: 'numeric', month: 'long', day: '2-digit' };
+                            const formattedDate = date.toLocaleDateString('en-US', options); 
+                        %>
+
+                        <div class="name">
+                            <p><%= res.name %></p>
+                            <button class="reschedule">RESCHEDULE</button>
+                        </div>
+
+                        <div class="time">
+                            <div class="slot-date">
+                                <p class="date"><%= formattedDate %></p>
+                               <p class="slot"><%= res.slot %></p>
+                            </div>
+                            <button class="delete">DELETE</button>
+                        </div>
+
+                    </div>
+
+
+                <% }) %>
+            </div>
+
+        <% }else{ %>
+
+            <p>There No Schedule Rigth Now</p>
+            <a href="/reservations">create now</a>
+        <% } %>
+
+
+    </div>
+
+
+    <script src="/scripts/delete.js"></script>
+    <script src="/scripts/reschedule.js"></script
+</body>
+</html>
