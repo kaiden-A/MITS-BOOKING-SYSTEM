@@ -1,0 +1,156 @@
+/* General */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  display: flex;
+  background: #f9f9f9;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h2 {
+  color: #7b2cbf;
+  margin: 0;
+}
+
+.header .logout {
+  text-align: right;
+}
+
+.header .logout a {
+  color: #7b2cbf;
+  margin-left: 10px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Dashboard Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.stat-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+.stat-card i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.stat-card.yellow { background: #fbc02d; }
+.stat-card.green { background: #388e3c; }
+.stat-card.orange { background: #f57c00; }
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.tab {
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  background: #eee;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.tab.active {
+  background: #7b2cbf;
+  color: #fff;
+}
+
+/* Tab Content */
+.tab-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.cards.hidden {
+  display: none;
+}
+
+/* Card Styles */
+.user-card, .venue-card, .news-card, .past-card, .active-card {
+  border: 1px solid #7b2cbf;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.user-card:hover,
+.venue-card:hover,
+.news-card:hover,
+.past-card:hover,
+.active-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Status Badge */
+.status {
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.status.active {
+  color: #fff;
+  background: #388e3c;
+}
+
+.status.disabled {
+  color: #fff;
+  background: #d32f2f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .tabs {
+    gap: 0.5rem;
+  }
+}
+

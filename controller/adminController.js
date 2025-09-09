@@ -2,11 +2,44 @@ import Venue from "../models/venue.js";
 import reserveVenue from "../models/reserveVenue.js";
 import HistoryReserve from '../models/historyReserve.js';
 import venue from "../models/venue.js";
+import User from '../models/users.js'
 
-export const get_homepage = (req , res) => {
+export const get_homepage = async (req , res) => {
+    const venues = await Venue.find();
 
-    res.send('this is admin page')
-}
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+
+    const yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+
+    // Active = Today reservations
+    const reserve = await reserveVenue.find({
+        date: { $gte: today, $lt: tomorrow }
+    })
+    .populate('venueId', 'name active') // get name + status
+    .populate('userId', 'username email');  // get name + email
+
+    // Past = Yesterday reservations
+    const history = await HistoryReserve.find({
+        date: { $gte: yesterday, $lt: today }
+    })
+    .populate('venueId', 'name active')
+    .populate('userId', 'username email');
+
+    const users = await User.find({}, 'username email'); // only return name+email
+    const news = [];
+
+    res.render('adminHome', {
+        venues,
+        reserve,
+        history,
+        users,
+        news
+    });
+};
 
 
 export const admin_get_login = (req , res) => {

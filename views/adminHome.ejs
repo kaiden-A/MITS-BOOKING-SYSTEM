@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin's Dashboard</title>
+  <link rel="stylesheet" href="/styles/navigationAdmin.css">
+  <link rel="icon" href="/images/mitsLogo.png">
+  <link rel="stylesheet" href="/styles/adminHome.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <%- include('./partials/adminNavigate.ejs') %>
+
+  <div class="content">
+    <div class="header">
+      <h2>Welcome Back Admin</h2>
+      <div class="logout">
+        <span><%= "admin@gmail.com" %></span>
+        <a href="/logout">logout</a>
+      </div>
+    </div>
+
+    <!-- Dashboard Cards -->
+    <div class="stats">
+      <div class="stat-card yellow">
+        <i class="fa-solid fa-calendar-day"></i>
+        <h3><%= reserve.length %></h3>
+        <p>Today's Reservations</p>
+      </div>
+      <div class="stat-card green">
+        <i class="fa-solid fa-users"></i>
+        <h3><%= users.length %></h3>
+        <p>Total Users</p>
+      </div>
+      <div class="stat-card orange">
+        <i class="fa-solid fa-building"></i>
+        <h3><%= venues.length %></h3>
+        <p>Total Venues</p>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab active" data-target="venues">Venues</button>
+      <button class="tab" data-target="users">Users</button>
+      <button class="tab" data-target="news">News</button>
+      <button class="tab" data-target="past">Past</button>
+      <button class="tab" data-target="active">Active</button>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="tab-content">
+      <!-- Venues -->
+      <div class="cards venues" id="venues">
+        <% if(venues.length === 0) { %>
+          <p>No venues available</p>
+        <% } else { %>
+          <% venues.forEach(venue => { %>
+            <div class="venue-card">
+              <h4><%= venue.name %></h4>
+              <p>Status: 
+                <% if(venue.active) { %>
+                  <span class="status active">Active</span>
+                <% } else { %>
+                  <span class="status disabled">Disabled</span>
+                <% } %>
+              </p>
+            </div>
+          <% }) %>
+        <% } %>
+      </div>
+
+      <!-- Users -->
+      <div class="cards users hidden" id="users">
+        <% if(users.length === 0) { %>
+          <p>No users found</p>
+        <% } else { %>
+          <% users.forEach(user => { %>
+            <div class="user-card">
+              <h4><%= user.username %></h4>
+              <p><%= user.email %></p>
+            </div>
+          <% }) %>
+        <% } %>
+      </div>
+
+      <!-- News -->
+      <div class="cards news hidden" id="news">
+        <% if(news.length === 0) { %>
+          <p>No news available</p>
+        <% } else { %>
+          <% news.forEach(n => { %>
+            <div class="news-card">
+              <h4><%= n.title %></h4>
+              <p><%= n.description %></p>
+            </div>
+          <% }) %>
+        <% } %>
+      </div>
+
+      <!-- Past Reservations -->
+      <div class="cards past hidden" id="past">
+        <% if(history.length === 0) { %>
+          <p>No past reservations</p>
+        <% } else { %>
+          <% history.forEach(item => { %>
+            <div class="past-card">
+              <h4><%= item.venueId ? item.venueId.name : "Unknown Venue" %></h4>
+              <p>Reserved by: <%= item.userId ? item.userId.username : "Unknown User" %></p>
+              <p>Email: <%= item.userId ? item.userId.email : "Unknown Email" %></p>
+              <p>Date: <%= item.date.toDateString() %></p>
+            </div>
+          <% }) %>
+        <% } %>
+      </div>
+
+      <!-- Active Reservations -->
+      <div class="cards active hidden" id="active">
+        <% if(reserve.length === 0) { %>
+          <p>No active reservations today</p>
+        <% } else { %>
+          <% reserve.forEach(item => { %>
+            <div class="active-card">
+              <h4><%= item.venueId ? item.venueId.name : "Unknown Venue" %></h4>
+              <p>Reserved by: <%= item.userId ? item.userId.username : "Unknown User" %></p>
+              <p>Email: <%= item.userId ? item.userId.email : "Unknown Email" %></p>
+              <p>Date: <%= item.date.toLocaleString() %></p>
+            </div>
+          <% }) %>
+        <% } %>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Tab Switching Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabs = document.querySelectorAll(".tab");
+      const contents = document.querySelectorAll(".cards");
+
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          // Remove active from all tabs
+          tabs.forEach(t => t.classList.remove("active"));
+          tab.classList.add("active");
+
+          // Hide all contents
+          contents.forEach(c => c.classList.add("hidden"));
+
+          // Show selected
+          const target = document.getElementById(tab.dataset.target);
+          if (target) target.classList.remove("hidden");
+        });
+      });
+    });
+  </script>
+</body>
+</html>

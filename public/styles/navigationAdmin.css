@@ -158,3 +158,109 @@ body {
   display: block;
 }
 
+/* Base icon style */
+.icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  position: relative;
+}
+
+/* Home Icon */
+.icon.home {
+  border: 2px solid #333;
+  border-bottom: none;
+  transform: rotate(45deg);
+}
+.icon.home::before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-45deg);
+  width: 12px;
+  height: 10px;
+  background: #333;
+}
+
+/* Venue (plus sign for create) */
+.icon.venue {
+  position: relative;
+}
+.icon.venue::before,
+.icon.venue::after {
+  content: "";
+  position: absolute;
+  background: #333;
+}
+.icon.venue::before {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 18px;
+}
+.icon.venue::after {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 2px;
+}
+
+/* Active Sessions (green dot) */
+.icon.active {
+  background: #28a745;
+  border-radius: 50%;
+}
+
+/* Past Sessions (clock shape) */
+.icon.past {
+  border: 2px solid #333;
+  border-radius: 50%;
+}
+.icon.past::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 6px;
+  background: #333;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.icon.past::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 2px;
+  background: #333;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Inventory (stacked boxes) */
+.icon.inventory {
+  box-sizing: border-box;
+  border: 2px solid #333;
+}
+.icon.inventory::before,
+.icon.inventory::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  background: #333;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.icon.inventory::before {
+  top: 5px;
+}
+.icon.inventory::after {
+  bottom: 5px;
+}
+
+

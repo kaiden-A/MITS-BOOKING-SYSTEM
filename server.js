@@ -37,7 +37,7 @@ mongoose.connect(dbUri)
         .catch((err) => {console.log(err.message)});
 
 
-startCronFunction();
+//startCronFunction();
 
 app.use(adminPath , adminRoutes);
 app.use('/api' , apiRoutes)
