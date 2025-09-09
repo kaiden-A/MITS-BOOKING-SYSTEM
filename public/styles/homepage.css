@@ -85,6 +85,69 @@ body {
 }
 
 /* ==============================
+   CUSTOM CSS ICONS
+============================== */
+.icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  position: relative;
+}
+
+/* Home Icon (small house) */
+.icon.home {
+  border: 2px solid #333;
+  border-bottom: none;
+  transform: rotate(45deg);
+}
+.icon.home::before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-45deg);
+  width: 12px;
+  height: 10px;
+  background: #333;
+}
+
+/* Schedule Icon (calendar) */
+.icon.schedule {
+  border: 2px solid #333;
+  border-radius: 4px;
+}
+.icon.schedule::before,
+.icon.schedule::after {
+  content: "";
+  position: absolute;
+  background: #333;
+}
+.icon.schedule::before {
+  top: -3px;
+  left: 3px;
+  width: 2px;
+  height: 6px;
+}
+.icon.schedule::after {
+  top: -3px;
+  right: 3px;
+  width: 2px;
+  height: 6px;
+}
+
+/* Logo placeholder (circle) */
+.logo {
+  display: block;
+  width: 35px;
+  height: 35px;
+  background: white;
+  border-radius: 50%;
+  margin-bottom: 8px;
+}
+
+
+/* ==============================
    BURGER MENU (MOBILE ONLY)
 ============================== */
 .burger {
