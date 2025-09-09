@@ -20,7 +20,7 @@ export default function startCronFunction(){
         } catch (err) {
             console.error("Error clearing reservations:", err);
         }
-    });
+    } ,  { timezone: "Asia/Kuala_Lumpur" });
 }
 
 
