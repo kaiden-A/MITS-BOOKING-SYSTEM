@@ -19,8 +19,6 @@ export const check_availablity = async  (req , res) => {
         }
 
         const bookedTime = reserve.map(r => r.slot);
-        console.log(bookedTime);
-
         const availableSlot = allTimeSlot.filter(slot => !bookedTime.includes(slot));
         
         res.json({availableSlot});
@@ -90,7 +88,6 @@ export const search_bookings = async (req , res) => {
             }
         })
         
-        console.log(result);
         return res.json({venue : result})
 
     }else{
@@ -114,7 +111,6 @@ export const search_bookings = async (req , res) => {
             }
         })
 
-        console.log(result);
         res.json({venue : result});
 
 

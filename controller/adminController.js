@@ -159,7 +159,6 @@ export const get_venue_inventory = async (req , res) => {
 
     const venue = await Venue.find();
 
-    console.log(venue)
 
     res.render('inventory' ,  {venues : venue})
 }
