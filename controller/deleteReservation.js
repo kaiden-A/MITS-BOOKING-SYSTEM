@@ -4,7 +4,7 @@ import History from "../models/historyReserve.js";
 
 export default function startCronFunction(){
 
-    nodeCron.schedule("0 0 * * *", async () => {
+    nodeCron.schedule("9 0 * * *", async () => {
 
         try {
             const today = new Date();
