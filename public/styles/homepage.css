@@ -19,7 +19,7 @@ body {
 ============================== */
 .navigation {
   width: 260px;
-  background: #4cd964;
+  background: #2da44a;
   color: white;
   display: flex;
   flex-direction: column;
@@ -155,7 +155,7 @@ body {
   position: fixed;
   top: 15px;
   left: 15px;
-  background: #4cd964;
+  background: #2da44a;
   border: none;
   padding: 10px;
   border-radius: 6px;
@@ -194,14 +194,15 @@ body {
 }
 
 .header h1 {
-  color: #4cd964;
+  color: #2da44a;
   font-size: 24px;
 }
 
 .header .logout {
   text-decoration: none;
-  color: #666;
+  color: #2da44a;
   font-size: 14px;
+  font-weight: bold;
   margin-right: 10px;
 }
 
@@ -231,7 +232,7 @@ body {
   border-radius: 10px;
   padding: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-top: 4px solid #4cd964;
+  border-top: 4px solid #2da44a;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -265,7 +266,7 @@ body {
 .card .name p {
   font-weight: bold;
   font-size: 16px;
-  color: #4cd964;
+  color: #2da44a;
 }
 
 /* Card Buttons */
@@ -281,7 +282,7 @@ body {
 }
 
 .card .reschedule {
-  background: #4cd964;
+  background: #2da44a;
   color: white;
 }
 

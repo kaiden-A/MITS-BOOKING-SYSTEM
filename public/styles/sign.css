@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #4cd964; /* green background */
+  background-color: #2da44a; /* green background */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,7 +81,7 @@ form hr {
 }
 
 form button {
-  background-color: #00c72d;
+  background-color: #2da44a;
   color: white;
   border: none;
   padding: 12px;
@@ -93,7 +93,7 @@ form button {
 }
 
 form button:hover {
-  background-color: #009e23;
+  background-color: #22873b;
 }
 
 form p {
@@ -104,7 +104,7 @@ form p {
 
 form p a,
 form p span {
-  color: #00c72d;
+  color: #2da44a;
   cursor: pointer;
   text-decoration: none;
 }
