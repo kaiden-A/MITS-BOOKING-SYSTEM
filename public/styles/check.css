@@ -1,0 +1,187 @@
+/* ==============================
+   RESET & GLOBAL STYLES
+============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background: #f9f9f9;
+}
+
+/* ==============================
+   CONTENT WRAPPER
+============================== */
+.content {
+  margin-left: 260px; /* aligns with your main nav */
+  padding: 30px;
+  flex: 1;
+}
+
+@media (max-width: 900px) {
+  .content {
+    margin-left: 0;
+    padding: 20px;
+  }
+}
+
+/* ==============================
+   PAGE HEADER
+============================== */
+.content header h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2da44a;
+  margin-bottom: 10px;
+}
+
+.content header + hr {
+  border: none;
+  height: 1px;
+  background: #ddd;
+  margin-bottom: 25px;
+}
+
+/* ==============================
+   SEARCH FORM
+============================== */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 35px;
+  align-items: center;
+}
+
+form input[type="date"],
+form select {
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  min-width: 200px;
+  flex: 1 1 auto;
+  outline: none;
+  transition: border 0.2s;
+}
+
+form input[type="date"]:focus,
+form select:focus {
+  border-color: #2da44a;
+}
+
+form button {
+  background: #2da44a;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+form button:hover {
+  background: #268b3e;
+}
+
+/* ==============================
+   RESERVATION LIST HEADER
+============================== */
+.content-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.content-header h2.venue {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+
+.content-header .date {
+  font-size: 15px;
+  color: #555;
+  font-weight: 500;
+}
+
+/* ==============================
+   RESERVATION CARDS
+============================== */
+.content-container {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.content-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.full{
+  border-top: 4px solid #2da44a;
+}
+
+.null {
+  border-top: 4px solid #e21f1f;
+}
+
+.content-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.time-slot p {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.p-null{
+  color: #e21f1f;
+}
+
+.p-full{
+  color: #2da44a;
+}
+.pic p {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+@media (max-width: 600px) {
+  form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .content-header h2.venue {
+    font-size: 20px;
+  }
+
+  .content-card {
+    padding: 15px;
+  }
+}

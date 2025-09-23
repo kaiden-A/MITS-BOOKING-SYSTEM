@@ -144,3 +144,35 @@ export const search_venues = async (req , res) => {
     }
 
 }
+
+export const check_reservations = async (req , res) => {
+
+    const {venueId , date} = req.query;
+    console.log(venueId , date);
+    const times = [...timeSlot];
+
+    try{
+
+        const reserve = await reserveVenue.find({venueId , date}).populate('userId' , 'username email').populate('venueId' , 'name');
+        console.log('reserve: ' , reserve);
+
+        const mappedSlot = times.map( time => {
+
+            const found = reserve.find( r =>
+                r.slot === time && r.venueId._id.toString() === venueId
+            )
+
+            return {
+
+                time : time,
+                occupied : found || null
+            }
+        })
+
+        console.log(mappedSlot);
+        res.json({mappedSlot});
+        
+    }catch(err){
+        console.log(err);
+    }
+}

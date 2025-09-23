@@ -113,3 +113,14 @@ export const delete_reserve = async (req , res) => {
     }
 
 }
+
+
+export const get_check_reservations = async (req , res) => {
+
+    const currentUser = req.user;
+    const user = await User.findById(currentUser._id);
+    const venue = await Venue.find({active : true});
+
+    res.render('check' , {venue , user});
+    
+}

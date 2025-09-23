@@ -1,0 +1,231 @@
+/* ==============================
+   SIDEBAR NAVIGATION
+============================== */
+.navigation {
+  width: 260px;
+  background: #2da44a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.navigation img {
+  width: 35px;
+  height: 35px;
+  background: white;
+  border-radius: 6px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.navigation hr {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  margin: 20px 0;
+}
+
+.navigation p {
+  margin-bottom: 15px;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.navigation button {
+  width: 100%;
+  background: white;
+  color: #333;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 10px;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.2s;
+}
+
+.navigation button:hover {
+  background: #f0f0f0;
+}
+
+.navigation button img {
+  width: 18px;
+  margin-right: 10px;
+}
+
+.navigation p:last-child {
+  margin-top: auto;
+  font-size: 12px;
+}
+
+/* ==============================
+   CUSTOM CSS ICONS
+============================== */
+.icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  position: relative;
+}
+
+/* Home Icon (small house) */
+.icon.home {
+  border: 2px solid #333;
+  border-bottom: none;
+  transform: rotate(45deg);
+}
+.icon.home::before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-45deg);
+  width: 12px;
+  height: 10px;
+  background: #333;
+}
+
+/* Schedule Icon (calendar) */
+.icon.schedule {
+  border: 2px solid #333;
+  border-radius: 4px;
+}
+.icon.schedule::before,
+.icon.schedule::after {
+  content: "";
+  position: absolute;
+  background: #333;
+}
+.icon.schedule::before {
+  top: -3px;
+  left: 3px;
+  width: 2px;
+  height: 6px;
+}
+.icon.schedule::after {
+  top: -3px;
+  right: 3px;
+  width: 2px;
+  height: 6px;
+}
+
+/* Logo placeholder (circle) */
+.logo {
+  display: block;
+  width: 35px;
+  height: 35px;
+  background: white;
+  border-radius: 50%;
+  margin-bottom: 8px;
+}
+
+/* Check-Reservation Icon (calendar + small check) */
+/* Check-Reservation Icon (calendar + small check) */
+.icon.check-reserve {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #333;      /* calendar outline */
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* top calendar tabs */
+.icon.check-reserve::before,
+.icon.check-reserve::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  width: 2px;
+  height: 6px;
+  background: #333;
+}
+.icon.check-reserve::before { left: 3px; }
+.icon.check-reserve::after  { right: 3px; }
+
+/* small check mark inside */
+.icon.check-reserve span {
+  position: absolute;
+  bottom: 3px;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+}
+.icon.check-reserve span::before,
+.icon.check-reserve span::after {
+  content: "";
+  position: absolute;
+  background: #333;
+  border-radius: 1px;
+}
+.icon.check-reserve span::before {
+  width: 2px;
+  height: 6px;
+  left: 4px;
+  top: 0;
+  transform: rotate(45deg);
+}
+.icon.check-reserve span::after {
+  width: 2px;
+  height: 4px;
+  left: 1px;
+  top: 2px;
+  transform: rotate(-45deg);
+}
+
+
+
+/* ==============================
+   BURGER MENU (MOBILE ONLY)
+============================== */
+.burger {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: #2da44a;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.burger span {
+  display: block;
+  width: 22px;
+  height: 3px;
+  background: white;
+  margin: 4px 0;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    transform: translateX(-100%); /* hidden by default */
+    width: 240px;
+  }
+
+  .navigation.active {
+    transform: translateX(0); /* show when burger clicked */
+  }
+
+  .burger {
+    display: block; /* show burger on mobile */
+  }
+
+  .content {
+    margin-left: 0; /* full width content */
+  }
+}

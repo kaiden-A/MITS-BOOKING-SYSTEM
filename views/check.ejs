@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Reservations</title>
+    <link rel="icon" href="/images/mitsLogo.png">
+    <link rel="stylesheet" href="/styles/navigation.css">
+    <link rel="stylesheet" href="/styles/check.css">
+</head>
+<body>
+
+    <%- include('./partials/navigate.ejs') %>
+    <div class="content">
+
+        <header>
+            <h1>Check reservations</h1>
+        </header>
+        <hr>
+        <form>
+            <input type="date" placeholder="Select a date" name="date">
+            <select id="search-venue" name="venue">
+                <option disabled>--Choose a Venue--</option>
+
+                <% venue.forEach(ven => { %>
+                    <option value="<%= ven._id %>"><%= ven.name %></option>
+                <% }) %>
+            </select>
+            <button>SEARCH</button>
+        </form>
+        <div class="content-header">
+        </div>
+        <hr>
+        <div class="content-container">
+        </div>
+
+    </div>
+
+    <script src="/scripts/checkReserve.js"></script>
+    
+</body>
+</html>
