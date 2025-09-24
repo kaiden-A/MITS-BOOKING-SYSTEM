@@ -132,18 +132,23 @@
 
 /* Check-Reservation Icon (calendar + small check) */
 /* Check-Reservation Icon (calendar + small check) */
-.icon.check-reserve {
+/* ==============================
+   CHECK SCHEDULE ICON (calendar + magnifying glass)
+============================== */
+.icon.check-schedule {
   position: relative;
   width: 18px;
   height: 18px;
-  border: 2px solid #333;      /* calendar outline */
-  border-radius: 4px;
   box-sizing: border-box;
+
+  /* calendar outline */
+  border: 2px solid #333;
+  border-radius: 4px;
 }
 
 /* top calendar tabs */
-.icon.check-reserve::before,
-.icon.check-reserve::after {
+.icon.check-schedule::before,
+.icon.check-schedule::after {
   content: "";
   position: absolute;
   top: -3px;
@@ -151,38 +156,74 @@
   height: 6px;
   background: #333;
 }
-.icon.check-reserve::before { left: 3px; }
-.icon.check-reserve::after  { right: 3px; }
+.icon.check-schedule::before { left: 3px; }
+.icon.check-schedule::after  { right: 3px; }
 
-/* small check mark inside */
-.icon.check-reserve span {
+/* magnifying glass (circle + handle) */
+.icon.check-schedule span {
   position: absolute;
-  bottom: 3px;
-  left: 4px;
+  right: -5px;
+  bottom: -5px;
   width: 8px;
   height: 8px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  box-sizing: border-box;
 }
-.icon.check-reserve span::before,
-.icon.check-reserve span::after {
+
+/* handle of the magnifying glass */
+.icon.check-schedule span::after {
   content: "";
   position: absolute;
+  width: 6px;
+  height: 2px;
   background: #333;
+  bottom: -3px;
+  right: -3px;
+  transform: rotate(45deg);
   border-radius: 1px;
 }
-.icon.check-reserve span::before {
-  width: 2px;
-  height: 6px;
-  left: 4px;
+
+
+/* ==============================
+   USER ICON  (head + shoulders)
+============================== */
+.icon.user {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+}
+
+/* Head (circle) */
+.icon.user::before {
+  content: "";
+  position: absolute;
   top: 0;
-  transform: rotate(45deg);
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
 }
-.icon.check-reserve span::after {
-  width: 2px;
-  height: 4px;
-  left: 1px;
-  top: 2px;
-  transform: rotate(-45deg);
+
+/* Shoulders / body */
+.icon.user::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 14px;
+  height: 6px;
+  border: 2px solid #333;
+  border-top: none;
+  border-radius: 6px 6px 0 0;
+  transform: translateX(-50%);
+  box-sizing: border-box;
 }
+
 
 
 

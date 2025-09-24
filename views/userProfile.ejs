@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= user.username %>'s Profile
+    </title>
+
+    <link rel="icon" href="/images/mitsLogo.png">
+    <link rel="stylesheet" href="/styles/navigation.css">
+    <link rel="stylesheet" href="/styles/user.css">
+</head>
+<body>
+
+    <%- include('./partials/navigate.ejs') %>
+    <div class="content">
+
+        <header>
+            <h1><%= user.username %> profile</h1>
+        </header>
+        <hr>
+        <div class="content">
+
+            <p class="name">Name : <%= user.username %></p>
+            <p class="email">Email : <%= user.email %></p>
+
+            <button class="change">Change Password</button>
+
+            <form>
+                <label for="old"> Current Password</label>
+                <input type="password" placeholder="Enter your current password..." name="old" id="old" required>
+
+                <label for="new"> New Password</label>
+                <input type="password" placeholder="Enter your new password..." name="new" id="new" required>
+
+                <label for="confirm">Confirm Your New Password</label>
+                <input type="password" placeholder="Enter your new password..." name="confirm" id="confirm" required>
+
+                <button>SUBMIT</button>
+            </form>
+            
+            
+        </div>
+
+    </div>
+
+    <script>
+        document.querySelector('.change').addEventListener('click', () => {
+            document.querySelector('form').classList.toggle('active');
+        });
+    </script>
+    <script src="/scripts/change.js"></script>
+
+    
+</body>
+</html>

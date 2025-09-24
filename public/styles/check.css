@@ -168,6 +168,10 @@ form button:hover {
   font-weight: 500;
 }
 
+.label{
+  display: inline-block;
+}
+
 /* ==============================
    RESPONSIVE DESIGN
 ============================== */

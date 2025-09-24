@@ -1,3 +1,4 @@
+import { compareSync } from "bcrypt";
 import reserveVenue from "../models/reserveVenue.js";
 import User from '../models/users.js';
 import Venue from '../models/venue.js';
@@ -123,4 +124,53 @@ export const get_check_reservations = async (req , res) => {
 
     res.render('check' , {venue , user});
     
+}
+
+export const get_user_profile = async (req , res) => {
+
+    const user = req.user;
+
+    try{
+        const currentUser = await User.findById(user._id);
+
+        res.render('userProfile' , {user : currentUser});
+
+    }catch(err){
+
+        console.log(err);
+    }
+}
+
+export const post_change_password = async (req , res) => {
+
+    const currentUser = req.user;
+    const {oldPassword , newPassword} = req.body;
+
+    console.log(req.body);
+    try{
+
+        const user = await User.findById(currentUser._id);
+        console.log(user);
+
+        const isMatch = await user.comparePassword(oldPassword);
+
+        if(!isMatch){
+            return res.status(403).json({error : 'Wrong password !!'})
+        }
+
+        if(newPassword.length <= 6){
+            return res.status(403).json({error : 'Password must be atleast 6 character'})
+        }
+
+        user.password = newPassword;
+        await user.save()
+
+        res.json({success : 'success'});
+
+
+    }catch(err){
+
+        console.log(err);
+        res.json({error : err});
+    }
 }
