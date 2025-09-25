@@ -1,33 +1,18 @@
+import dltReserve from './utils/deleteFunc.js'
 
 document.querySelectorAll('.delete').forEach( button => {
     
     button.addEventListener( 'click' , async (e) => {
 
 
-        try{
+        const {card , data} = await dltReserve(e , '.card' , 'reserveId' , '/reservations');
 
-                const card = e.target.closest('.card');
+        if(data.error){
+            alert(data.error);
+        }
 
-
-                const reserveId = card.dataset.reserveId;
-
-                const responses  = await fetch(`/reservations/${reserveId}` , {
-                    method: 'DELETE',
-                    headers: {'Content-Type' : 'application/json'}
-                })
-
-                const data = await responses.json();
-
-                if(data.error){
-                    alert(data.error);
-                }
-
-                if(data.success){
-                    card.remove();
-                }
-        }catch(err){
-
-            console.log(err);
+        if(data.success){
+            card.remove();
         }
     })
 })

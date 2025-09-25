@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create News</title>
+    <link rel="icon" href="/images/mitsLogo.png">
+    <link rel="stylesheet" href="/styles/admin/navigationAdmin.css">
+    <link rel="stylesheet" href="/styles/admin/news.css">
+</head>
+<body>
+
+    <%- include('../partials/adminNavigate.ejs') %>
+    <div class="content">
+
+        <header>
+            <h1>Create a News</h1>
+            <button>CREATE NEWS</button>
+        </header>
+
+        <hr>
+
+        <div class="content-container">
+
+            <form>
+                <label for="title">Enter a Title</label>
+                <input type="text" name="title" required placeholder="Enter a title..." id="title">
+
+                <label for="description">Enter a description</label>
+                <textarea type="text" name="description" required placeholder="Enter a desciption..." id="description"></textarea>
+        
+                <button>SUBMIT</button>
+                
+            </form>
+        </div>
+
+
+    </div>  
+
+    <script src="/scripts/news.js"></script>
+</body>
+</html>

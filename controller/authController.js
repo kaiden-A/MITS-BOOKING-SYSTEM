@@ -10,7 +10,7 @@ const createToken = (id , isAdmin) => {
 }
 
 export const get_login = (req , res) => {
-    res.render('signIn')
+    res.render('user/signIn')
 }
 
 export const post_login = async (req , res) => {
@@ -52,7 +52,7 @@ export const post_login = async (req , res) => {
 }
 
 export const get_signUp = (req , res) => {
-    res.render('signUp')
+    res.render('user/signUp')
 }
 
 export const post_signUp = async (req , res) => {

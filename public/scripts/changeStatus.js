@@ -1,5 +1,5 @@
 const motherCard = document.querySelector('.grid')
-import { createCard , createDivButton , createDivHeader , createDivMiddle } from "./createCard.js";
+import { createCard , createDivButton , createDivHeader , createDivMiddle } from "./utils/createCard.js";
 
 motherCard.addEventListener('click', async (e) => {
     if (e.target.classList.contains('disable-btn')) {

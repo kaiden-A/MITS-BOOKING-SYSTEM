@@ -1,3 +1,4 @@
+import logIn from "./utils/login.js";
 const form = document.querySelector('form');
 const errorbox = document.querySelector('.error-box');
 
@@ -8,17 +9,10 @@ form.addEventListener('submit' , async (e) => {
 
     const email = form.email.value;
     const password = form.password.value;
+    const routes = '/admin/login';
 
 
-    const responses = await fetch('/admin/login' , {
-
-        method: 'POST',
-        headers: {'Content-Type' : 'application/json'},
-        body: JSON.stringify({email , password})
-    })
-
-
-    const data = await responses.json();
+    const data = await logIn( routes , email , password);
 
     if(data.error){
         errorbox.style.display = 'block';

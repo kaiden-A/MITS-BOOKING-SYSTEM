@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin's Dashboard</title>
-  <link rel="stylesheet" href="/styles/navigationAdmin.css">
+  <link rel="stylesheet" href="/styles/admin/navigationAdmin.css">
   <link rel="icon" href="/images/mitsLogo.png">
-  <link rel="stylesheet" href="/styles/adminHome.css">
+  <link rel="stylesheet" href="/styles/admin/adminHome.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <%- include('./partials/adminNavigate.ejs') %>
+  <%- include('../partials/adminNavigate.ejs') %>
 
   <div class="content">
     <div class="header">
@@ -91,9 +91,9 @@
           <p>No news available</p>
         <% } else { %>
           <% news.forEach(n => { %>
-            <div class="news-card">
+            <div class="news-card" data-news-id="<%= n._id %>">
               <h4><%= n.title %></h4>
-              <p><%= n.description %></p>
+              <button class="dlt-news">DELETE</button>
             </div>
           <% }) %>
         <% } %>
@@ -155,5 +155,7 @@
       });
     });
   </script>
+
+  <script type="module" src="/scripts/dltNews.js"></script>
 </body>
 </html>

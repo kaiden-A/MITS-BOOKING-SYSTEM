@@ -30,7 +30,7 @@ export const get_homepage = async (req , res) => {
         })
 
                                     
-        res.render('homepage',  {user , reserve : result} )
+        res.render('user/homepage',  {user , reserve : result} )
        
         
     }catch(err){
@@ -50,7 +50,7 @@ export const get_reserve_form = async (req , res) => {
 
         const venue = await Venue.find({active : true});
 
-        res.render('form' , {venues: venue , user})
+        res.render('user/form' , {venues: venue , user})
 
     }catch(err){
 
@@ -122,7 +122,7 @@ export const get_check_reservations = async (req , res) => {
     const user = await User.findById(currentUser._id);
     const venue = await Venue.find({active : true});
 
-    res.render('check' , {venue , user});
+    res.render('user/check' , {venue , user});
     
 }
 
@@ -133,7 +133,7 @@ export const get_user_profile = async (req , res) => {
     try{
         const currentUser = await User.findById(user._id);
 
-        res.render('userProfile' , {user : currentUser});
+        res.render('user/userProfile' , {user : currentUser});
 
     }catch(err){
 
@@ -146,11 +146,9 @@ export const post_change_password = async (req , res) => {
     const currentUser = req.user;
     const {oldPassword , newPassword} = req.body;
 
-    console.log(req.body);
     try{
 
         const user = await User.findById(currentUser._id);
-        console.log(user);
 
         const isMatch = await user.comparePassword(oldPassword);
 
